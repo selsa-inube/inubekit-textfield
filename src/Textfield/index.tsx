@@ -16,7 +16,7 @@ import {
   StyledMessageContainer,
 } from "./styles";
 
-interface ITextfieldProps {
+export interface ITextfieldProps {
   label?: string;
   name?: string;
   id: string;
@@ -159,13 +159,13 @@ export const Textfield = (props: ITextfieldProps) => {
         )}
 
         <StyledInput
-          $label={label}
-          $name={name}
-          $id={id}
+          label={label}
+          name={name}
+          id={id}
           placeholder={placeholder}
-          $disabled={disabled}
-          $type={type}
-          $value={value}
+          disabled={disabled}
+          type={type}
+          value={value}
           iconBefore={iconBefore}
           iconAfter={iconAfter}
           $required={required}

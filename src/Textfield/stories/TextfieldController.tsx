@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Textfield, ITextfieldProps } from "..";
 
-const TextfieldController = (props: ITextfieldProps) => {
+export const TextfieldController = (props: ITextfieldProps) => {
   const { value = "", status = "pending" } = props;
   const [form, setForm] = useState({ value, status });
 
@@ -43,5 +43,3 @@ const TextfieldController = (props: ITextfieldProps) => {
     />
   );
 };
-
-export { TextfieldController };

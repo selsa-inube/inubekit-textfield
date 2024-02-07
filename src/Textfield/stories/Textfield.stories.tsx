@@ -12,7 +12,9 @@ const story = {
   argTypes: props,
 };
 
-const Default = (args: ITextfieldProps) => <TextfieldController {...args} />;
+export const Default = (args: ITextfieldProps) => (
+  <TextfieldController {...args} />
+);
 Default.args = {
   label: "Username",
   name: "Username",
@@ -42,5 +44,3 @@ Themed.args = {
   ...Default.args,
 };
 export default story;
-
-export { Default };
