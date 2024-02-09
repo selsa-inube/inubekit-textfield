@@ -171,8 +171,8 @@ export const Textfield = (props: ITextfieldProps) => {
           $required={required}
           $size={size}
           $status={status}
-          fullwidth={fullwidth}
-          focused={focused}
+          $fullwidth={fullwidth}
+          $focused={focused}
           onChange={onChange}
           onFocus={interceptFocus}
           onBlur={interceptBlur}
