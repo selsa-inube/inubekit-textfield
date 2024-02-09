@@ -166,16 +166,16 @@ export const Textfield = (props: ITextfieldProps) => {
           disabled={disabled}
           type={type}
           value={value}
-          $iconBefore={iconBefore}
-          $iconAfter={iconAfter}
+          iconBefore={iconBefore}
+          iconAfter={iconAfter}
           $required={required}
           $size={size}
           $status={status}
           $fullwidth={fullwidth}
           $focused={focused}
           onChange={onChange}
-          $onFocus={interceptFocus}
-          $onBlur={interceptBlur}
+          onFocus={interceptFocus}
+          onBlur={interceptBlur}
           readOnly={readOnly}
         />
 
