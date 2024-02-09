@@ -159,23 +159,23 @@ export const Textfield = (props: ITextfieldProps) => {
         )}
 
         <StyledInput
-          label={label}
+          $label={label}
           name={name}
           id={id}
           placeholder={placeholder}
           disabled={disabled}
           type={type}
           value={value}
-          iconBefore={iconBefore}
-          iconAfter={iconAfter}
+          $iconBefore={iconBefore}
+          $iconAfter={iconAfter}
           $required={required}
           $size={size}
           $status={status}
           $fullwidth={fullwidth}
           $focused={focused}
           onChange={onChange}
-          onFocus={interceptFocus}
-          onBlur={interceptBlur}
+          $onFocus={interceptFocus}
+          $onBlur={interceptBlur}
           readOnly={readOnly}
         />
 
