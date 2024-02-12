@@ -159,7 +159,7 @@ export const Textfield = (props: ITextfieldProps) => {
         )}
 
         <StyledInput
-          $label={label}
+          label={label}
           name={name}
           id={id}
           placeholder={placeholder}
