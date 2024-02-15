@@ -91,6 +91,7 @@ export const StyledInput = styled.input`
 
   border: none;
   &[type="number"] {
+    appearance: textfield;
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
   }
