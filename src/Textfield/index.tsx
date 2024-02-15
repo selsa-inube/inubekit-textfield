@@ -42,7 +42,7 @@ const Message = (props: Omit<ITextfieldProps, "id"> & { message?: string }) => {
   const { disabled, status, message } = props;
 
   return status !== "pending" ? (
-    <StyledMessageContainer disabled={disabled} status={status}>
+    <StyledMessageContainer disabled={disabled} $status={status}>
       <Stack alignItems="center" gap="4px" margin="s050 s0 s0 s200">
         <Icon
           appearance={status === "invalid" ? "error" : "success"}
@@ -166,8 +166,8 @@ export const Textfield = (props: ITextfieldProps) => {
           disabled={disabled}
           type={type}
           value={value}
-          iconBefore={iconBefore}
-          iconAfter={iconAfter}
+          $iconBefore={iconBefore}
+          $iconAfter={iconAfter}
           $required={required}
           $size={size}
           $status={status}
