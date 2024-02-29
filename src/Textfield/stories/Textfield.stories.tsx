@@ -1,6 +1,3 @@
-import { ThemeProvider } from "styled-components";
-
-import { presente } from "@inubekit/foundations";
 import { props, parameters } from "../props";
 import { Textfield, ITextfieldProps } from "..";
 import { TextfieldController } from "./TextfieldController";
@@ -30,17 +27,4 @@ Default.args = {
   fullwidth: false,
 };
 
-const theme = {
-  ...presente,
-};
-
-export const Themed = (args: ITextfieldProps) => (
-  <ThemeProvider theme={theme}>
-    <TextfieldController {...args} />
-  </ThemeProvider>
-);
-
-Themed.args = {
-  ...Default.args,
-};
 export default story;

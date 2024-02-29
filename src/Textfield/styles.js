@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
+import { typography } from "./typography";
 import { inube } from "@inubekit/foundations";
 
 const $setBackgroundColor = ({ $readOnly }) =>
-  $readOnly && inube.color.surface.gray.clear;
+  $readOnly && inube.label.content.color.regular;
 
 export const StyledContainer = styled.div`
   cursor: ${({ $disabled }) => $disabled && "not-allowed"};
@@ -13,7 +14,7 @@ export const StyledContainer = styled.div`
 export const StyledContainerLabel = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: ${inube.spacing.s050};
+  margin-bottom: 5px;
   pointer-events: ${({ $disabled }) => $disabled && "none"};
 `;
 
@@ -23,8 +24,8 @@ export const StyledInputContainer = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
-  padding-left: ${inube.spacing.s200};
-  padding-right: ${inube.spacing.s200};
+  padding-left: 16px;
+  padding-right: 16px;
   pointer-events: ${({ $disabled }) => $disabled && "none"};
   opacity: ${({ $disabled }) => $disabled && "0.5"};
   background-color: ${$setBackgroundColor};
@@ -47,27 +48,26 @@ export const StyledInputContainer = styled.div`
     ${({ $disabled, $status, $focused, theme }) => {
       if ($disabled) {
         return (
-          theme?.color?.stroke?.gray?.disabled ||
-          inube.color.stroke.gray.disabled
+          theme?.label?.content?.color?.disabled ||
+          inube.label.content.color.disabled
         );
       }
 
       if ($status === "invalid") {
         return (
-          theme?.color?.stroke?.error?.regular ||
-          inube.color.stroke.error.regular
+          theme?.label?.content?.color?.invalid ||
+          inube.label.content.color.invalid
         );
       }
 
       if ($focused) {
         return (
-          theme?.color?.stroke?.primary?.hover ||
-          inube.color.stroke.primary.hover
+          theme?.label?.content?.color?.focus || inube.label.content.color.focus
         );
       }
       return (
-        theme?.color?.stroke?.divider?.regular ||
-        inube.color.stroke.divider.regular
+        theme?.label?.content?.color?.regular ||
+        inube.label.content.color.regular
       );
     }};
 `;
@@ -75,16 +75,18 @@ export const StyledInputContainer = styled.div`
 export const StyledInput = styled.input`
   outline: none;
   border-radius: 8px;
-  font-family: ${inube.typography.body.large.font};
-  font-size: ${inube.typography.body.large.size};
-  font-weight: ${inube.typography.body.large.weight};
-  line-height: ${inube.typography.body.large.lineHeight};
-  letter-spacing: ${inube.typography.body.large.tracking};
+  font-family: ${typography.body.large.font};
+  font-size: ${typography.body.large.size};
+  font-weight: ${typography.body.large.weight};
+  line-height: ${typography.body.large.lineHeight};
+  letter-spacing: ${typography.body.large.tracking};
   background-color: ${$setBackgroundColor};
   color: ${({ $disabled, theme }) =>
     $disabled
-      ? theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
-      : theme?.color?.text?.dark?.regular || inube.color.text.dark.regular};
+      ? theme?.text?.gray?.content?.color?.disabled ||
+        inube.text.gray.content.color.disabled
+      : theme?.text?.dark?.content?.color?.regular ||
+        inube.text.dark.content.color.regular};
 
   width: ${({ $fullwidth }) => $fullwidth && "100%"};
   height: ${({ $size }) => ($size === "compact" ? "40px" : "48px")};
@@ -97,7 +99,8 @@ export const StyledInput = styled.input`
   }
   ::placeholder {
     color: ${({ theme }) =>
-      theme?.color?.text?.gray?.regular || inube.color.text.gray.regular};
+      theme?.text?.gray?.content?.color?.regular ||
+      inube.text.gray.content.color.regular};
   }
 
   &:focus {
@@ -129,19 +132,22 @@ export const StyledMessageContainer = styled.div`
   color: ${({ $disabled, $status, theme }) => {
     if ($disabled) {
       return (
-        theme?.color?.text?.gray?.disabled || inube.color.text.gray.disabled
+        theme?.text?.gray?.content?.color?.disabled ||
+        inube.text.gray.content.color.disabled
       );
     }
 
     if ($status === "valid") {
       return (
-        theme?.color?.text?.success?.regular || inube.color.text.success.regular
+        theme?.text?.success?.content?.color?.regular ||
+        inube.text.success.content.color.regular
       );
     }
 
     if ($status === "invalid") {
       return (
-        theme?.color?.text?.error?.regular || inube.color.text.error.regular
+        theme?.text?.danger?.content?.color?.regular ||
+        inube.text.danger.content.color.regular
       );
     }
   }};

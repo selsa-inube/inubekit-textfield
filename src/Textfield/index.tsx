@@ -3,7 +3,6 @@ import { MdCheckCircle, MdOutlineWarning } from "react-icons/md";
 
 import { Text } from "@inubekit/text";
 import { Label } from "@inubekit/label";
-
 import { Icon } from "@inubekit/icon";
 import { Stack } from "@inubekit/stack";
 
@@ -43,9 +42,9 @@ const Message = (props: Omit<ITextfieldProps, "id"> & { message?: string }) => {
 
   return status !== "pending" ? (
     <StyledMessageContainer disabled={disabled} $status={status}>
-      <Stack alignItems="center" gap="4px" margin="s050 s0 s0 s200">
+      <Stack alignItems="center" gap="4px" margin="5px 0 0 16px">
         <Icon
-          appearance={status === "invalid" ? "error" : "success"}
+          appearance={status === "invalid" ? "danger" : "success"}
           disabled={disabled}
           icon={status === "invalid" ? <MdOutlineWarning /> : <MdCheckCircle />}
           size="14px"
@@ -53,7 +52,7 @@ const Message = (props: Omit<ITextfieldProps, "id"> & { message?: string }) => {
         <Text
           type="body"
           size="small"
-          appearance={status === "invalid" ? "error" : "success"}
+          appearance={status === "invalid" ? "danger" : "success"}
           disabled={disabled}
           textAlign={"center"}
         >
