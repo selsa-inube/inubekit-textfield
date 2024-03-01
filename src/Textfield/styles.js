@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import { typography } from "./typography";
 import { inube } from "@inubekit/foundations";
 
 const $setBackgroundColor = ({ $readOnly }) =>
@@ -75,11 +74,12 @@ export const StyledInputContainer = styled.div`
 export const StyledInput = styled.input`
   outline: none;
   border-radius: 8px;
-  font-family: ${typography.body.large.font};
-  font-size: ${typography.body.large.size};
-  font-weight: ${typography.body.large.weight};
-  line-height: ${typography.body.large.lineHeight};
-  letter-spacing: ${typography.body.large.tracking};
+  font-family: ${({ theme }) =>
+    theme?.typography?.body?.large?.font || inube.typography.body.large.font};
+  font-size: ${inube.typography.body.large.size};
+  font-weight: ${inube.typography.body.large.weight};
+  line-height: ${inube.typography.body.large.lineHeight};
+  letter-spacing: ${inube.typography.body.large.tracking};
   background-color: ${$setBackgroundColor};
   color: ${({ $disabled, theme }) =>
     $disabled
