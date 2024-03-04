@@ -65,8 +65,7 @@ export const StyledInputContainer = styled.div`
         );
       }
       return (
-        theme?.label?.content?.color?.regular ||
-        inube.label.content.color.regular
+        theme?.input?.border?.color?.regular || inube.input.border.color.regular
       );
     }};
 `;
