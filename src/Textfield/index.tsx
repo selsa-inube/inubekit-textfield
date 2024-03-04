@@ -36,34 +36,6 @@ export interface ITextfield {
   focused?: boolean;
 }
 
-const Message = (props: Omit<ITextfield, "id"> & { message?: string }) => {
-  const { disabled, status, message } = props;
-
-  return status === "invalid" ? (
-    <StyledMessageContainer disabled={disabled} $status={status}>
-      <Stack alignItems="center" gap="4px" margin="5px 0 0 16px">
-        <Icon
-          appearance={"danger"}
-          disabled={disabled}
-          icon={<MdOutlineWarning />}
-          size="14px"
-        />
-        <Text
-          type="body"
-          size="small"
-          appearance={"danger"}
-          disabled={disabled}
-          textAlign={"center"}
-        >
-          {message && `${message}`}
-        </Text>
-      </Stack>
-    </StyledMessageContainer>
-  ) : (
-    <></>
-  );
-};
-
 export const Textfield = (props: ITextfield) => {
   const {
     label,
@@ -185,8 +157,26 @@ export const Textfield = (props: ITextfield) => {
         )}
       </StyledInputContainer>
 
-      {status && (
-        <Message disabled={disabled} status={status} message={message} />
+      {status === "invalid" && !disabled && (
+        <StyledMessageContainer disabled={disabled} $status={status}>
+          <Stack alignItems="center" gap="4px" margin="5px 0 0 16px">
+            <Icon
+              appearance={"danger"}
+              disabled={disabled}
+              icon={<MdOutlineWarning />}
+              size="14px"
+            />
+            <Text
+              type="body"
+              size="small"
+              appearance={"danger"}
+              disabled={disabled}
+              textAlign={"center"}
+            >
+              {message && `${message}`}
+            </Text>
+          </Stack>
+        </StyledMessageContainer>
       )}
     </StyledContainer>
   );
