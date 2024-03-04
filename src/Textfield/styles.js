@@ -47,21 +47,21 @@ export const StyledInputContainer = styled.div`
     ${({ $disabled, $status, $focused, theme }) => {
       if ($disabled) {
         return (
-          theme?.label?.content?.color?.disabled ||
-          inube.label.content.color.disabled
+          theme?.input?.border?.color?.disabled ||
+          inube.input.border.color.disabled
         );
       }
 
       if ($status === "invalid") {
         return (
-          theme?.label?.content?.color?.invalid ||
-          inube.label.content.color.invalid
+          theme?.input?.border?.color?.invalid ||
+          inube.input.border.color.invalid
         );
       }
 
       if ($focused) {
         return (
-          theme?.label?.content?.color?.focus || inube.label.content.color.focus
+          theme?.input?.border?.color?.focus || inube.input.border.color.focus
         );
       }
       return (
@@ -82,10 +82,10 @@ export const StyledInput = styled.input`
   background-color: ${$setBackgroundColor};
   color: ${({ $disabled, theme }) =>
     $disabled
-      ? theme?.text?.gray?.content?.color?.disabled ||
-        inube.text.gray.content.color.disabled
-      : theme?.text?.dark?.content?.color?.regular ||
-        inube.text.dark.content.color.regular};
+      ? theme?.input?.content?.color?.disabled ||
+        inube.input.content.color.disabled
+      : theme?.input?.content?.color?.regular ||
+        inube.input.content.color.regular};
 
   width: ${({ $fullwidth }) => $fullwidth && "100%"};
   height: ${({ $size }) => ($size === "compact" ? "40px" : "48px")};
@@ -134,13 +134,6 @@ export const StyledMessageContainer = styled.div`
       return (
         theme?.text?.gray?.content?.color?.disabled ||
         inube.text.gray.content.color.disabled
-      );
-    }
-
-    if ($status === "valid") {
-      return (
-        theme?.text?.success?.content?.color?.regular ||
-        inube.text.success.content.color.regular
       );
     }
 
