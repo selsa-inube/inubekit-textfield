@@ -96,10 +96,4 @@ export const props = {
       defaultValue: { summary: false },
     },
   },
-  readOnly: {
-    descriptions: "option to make the field read only",
-    table: {
-      defaultValue: { summary: false },
-    },
-  },
 };

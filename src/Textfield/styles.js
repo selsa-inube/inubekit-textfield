@@ -128,6 +128,7 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledMessageContainer = styled.div`
+  margin-top: 4px;
   pointer-events: none;
   color: ${({ $disabled, $status, theme }) => {
     if ($disabled) {

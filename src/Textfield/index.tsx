@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MdCheckCircle, MdOutlineWarning } from "react-icons/md";
+import { MdOutlineWarning } from "react-icons/md";
 
 import { Text } from "@inubekit/text";
 import { Label } from "@inubekit/label";
@@ -15,7 +15,7 @@ import {
   StyledMessageContainer,
 } from "./styles";
 
-export interface ITextfieldProps {
+export interface ITextfield {
   label?: string;
   name?: string;
   id: string;
@@ -33,26 +33,25 @@ export interface ITextfieldProps {
   fullwidth?: boolean;
   onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  readOnly?: boolean;
   focused?: boolean;
 }
 
-const Message = (props: Omit<ITextfieldProps, "id"> & { message?: string }) => {
+const Message = (props: Omit<ITextfield, "id"> & { message?: string }) => {
   const { disabled, status, message } = props;
 
-  return status !== "pending" ? (
+  return status === "invalid" ? (
     <StyledMessageContainer disabled={disabled} $status={status}>
       <Stack alignItems="center" gap="4px" margin="5px 0 0 16px">
         <Icon
-          appearance={status === "invalid" ? "danger" : "success"}
+          appearance={"danger"}
           disabled={disabled}
-          icon={status === "invalid" ? <MdOutlineWarning /> : <MdCheckCircle />}
+          icon={<MdOutlineWarning />}
           size="14px"
         />
         <Text
           type="body"
           size="small"
-          appearance={status === "invalid" ? "danger" : "success"}
+          appearance={"danger"}
           disabled={disabled}
           textAlign={"center"}
         >
@@ -65,7 +64,7 @@ const Message = (props: Omit<ITextfieldProps, "id"> & { message?: string }) => {
   );
 };
 
-export const Textfield = (props: ITextfieldProps) => {
+export const Textfield = (props: ITextfield) => {
   const {
     label,
     name,
@@ -84,13 +83,12 @@ export const Textfield = (props: ITextfieldProps) => {
     fullwidth = false,
     onFocus,
     onBlur,
-    readOnly,
   } = props;
 
   const [focused, setFocused] = useState(false);
 
   const interceptFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!readOnly) {
+    if (!disabled) {
       setFocused(true);
     }
     if (typeof onFocus === "function") {
@@ -130,7 +128,7 @@ export const Textfield = (props: ITextfieldProps) => {
           <Text
             type="body"
             size="small"
-            appearance="dark"
+            appearance="danger"
             margin="0px 0px 0px 4px"
             textAlign={"center"}
           >
@@ -145,7 +143,6 @@ export const Textfield = (props: ITextfieldProps) => {
         $status={status}
         $iconBefore={iconBefore}
         $iconAfter={iconAfter}
-        $readOnly={readOnly}
       >
         {iconBefore && (
           <Icon
@@ -175,7 +172,6 @@ export const Textfield = (props: ITextfieldProps) => {
           onChange={onChange}
           onFocus={interceptFocus}
           onBlur={interceptBlur}
-          readOnly={readOnly}
         />
 
         {iconAfter && (
