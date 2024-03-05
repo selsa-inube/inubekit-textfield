@@ -60,18 +60,40 @@ export const Textfield = (props: ITextfield) => {
   const [focused, setFocused] = useState(false);
 
   const interceptFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!disabled) {
-      setFocused(true);
-    }
-    if (typeof onFocus === "function") {
-      onFocus(e);
+    setFocused(true);
+    try {
+      onFocus && onFocus?.(e);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
     }
   };
 
   const interceptBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFocused(false);
-    if (typeof onBlur === "function") {
-      onBlur(e);
+    try {
+      onFocus && onBlur?.(e);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
+    }
+  };
+
+  const interceptChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    try {
+      onChange && onChange(e);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
     }
   };
 
@@ -141,7 +163,7 @@ export const Textfield = (props: ITextfield) => {
           $status={status}
           $fullwidth={fullwidth}
           $focused={focused}
-          onChange={onChange}
+          onChange={interceptChange}
           onFocus={interceptFocus}
           onBlur={interceptBlur}
         />
