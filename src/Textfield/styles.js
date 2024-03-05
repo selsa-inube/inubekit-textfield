@@ -98,8 +98,8 @@ export const StyledInput = styled.input`
   }
   ::placeholder {
     color: ${({ theme }) =>
-      theme?.text?.gray?.content?.color?.regular ||
-      inube.text.gray.content.color.regular};
+      theme?.input?.content?.color?.regular ||
+      inube.input.content.color.regular};
   }
 
   &:focus {
