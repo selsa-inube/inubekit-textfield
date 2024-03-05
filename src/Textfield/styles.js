@@ -2,9 +2,6 @@ import styled from "styled-components";
 
 import { inube } from "@inubekit/foundations";
 
-const $setBackgroundColor = ({ $readOnly }) =>
-  $readOnly && inube.label.content.color.regular;
-
 export const StyledContainer = styled.div`
   cursor: ${({ $disabled }) => $disabled && "not-allowed"};
   width: ${({ $fullwidth }) => ($fullwidth ? "100%" : "280px")};
@@ -27,7 +24,10 @@ export const StyledInputContainer = styled.div`
   padding-right: 16px;
   pointer-events: ${({ $disabled }) => $disabled && "none"};
   opacity: ${({ $disabled }) => $disabled && "0.5"};
-  background-color: ${$setBackgroundColor};
+  background-color: ${({ $disabled, theme }) =>
+    $disabled
+      ? theme?.input?.background?.color?.disabled
+      : inube.input.background.color.default};
   grid-template-columns: ${({ $iconBefore, $iconAfter }) => {
     if ($iconBefore && $iconAfter) {
       return "auto 1fr auto";
@@ -79,7 +79,10 @@ export const StyledInput = styled.input`
   font-weight: ${inube.typography.body.large.weight};
   line-height: ${inube.typography.body.large.lineHeight};
   letter-spacing: ${inube.typography.body.large.tracking};
-  background-color: ${$setBackgroundColor};
+  background-color: ${({ $disabled, theme }) =>
+    $disabled
+      ? theme?.input?.background?.color?.disabled
+      : inube.input.background.color.default};
   color: ${({ $disabled, theme }) =>
     $disabled
       ? theme?.input?.content?.color?.disabled ||
@@ -98,8 +101,8 @@ export const StyledInput = styled.input`
   }
   ::placeholder {
     color: ${({ theme }) =>
-      theme?.input?.content?.color?.regular ||
-      inube.input.content.color.regular};
+      theme?.input?.placeholder?.color?.regular ||
+      inube.input.placeholder.color.regular};
   }
 
   &:focus {

@@ -184,7 +184,6 @@ export const Textfield = (props: ITextfield) => {
           <Stack alignItems="center" gap="4px" margin="5px 0 0 16px">
             <Icon
               appearance={"danger"}
-              disabled={disabled}
               icon={<MdOutlineWarning />}
               size="14px"
             />
@@ -192,7 +191,6 @@ export const Textfield = (props: ITextfield) => {
               type="body"
               size="small"
               appearance={"danger"}
-              disabled={disabled}
               textAlign={"center"}
             >
               {message && `${message}`}
