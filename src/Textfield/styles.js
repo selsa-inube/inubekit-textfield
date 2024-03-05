@@ -129,19 +129,6 @@ export const StyledInput = styled.input`
 export const StyledMessageContainer = styled.div`
   margin-top: 4px;
   pointer-events: none;
-  color: ${({ $disabled, $status, theme }) => {
-    if ($disabled) {
-      return (
-        theme?.input?.border?.color?.disabled ||
-        inube.input.border.color.disabled
-      );
-    }
-
-    if ($status === "invalid") {
-      return (
-        theme?.input?.message?.color?.regular ||
-        inube.input.message.color.regular
-      );
-    }
-  }};
+  color: ${({ theme }) =>
+    theme?.input?.message?.color?.regular || inube.input.message.color.regular};
 `;
