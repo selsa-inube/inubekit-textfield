@@ -132,15 +132,15 @@ export const StyledMessageContainer = styled.div`
   color: ${({ $disabled, $status, theme }) => {
     if ($disabled) {
       return (
-        theme?.text?.gray?.content?.color?.disabled ||
-        inube.text.gray.content.color.disabled
+        theme?.input?.border?.color?.disabled ||
+        inube.input.border.color.disabled
       );
     }
 
     if ($status === "invalid") {
       return (
-        theme?.text?.danger?.content?.color?.regular ||
-        inube.text.danger.content.color.regular
+        theme?.input?.message?.color?.regular ||
+        inube.input.message.color.regular
       );
     }
   }};
