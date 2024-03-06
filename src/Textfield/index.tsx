@@ -180,7 +180,7 @@ export const Textfield = (props: ITextfield) => {
       </StyledInputContainer>
 
       {status === "invalid" && !disabled && (
-        <StyledMessageContainer disabled={disabled} $status={status}>
+        <StyledMessageContainer>
           <Stack alignItems="center" gap="4px" margin="5px 0 0 16px">
             <Icon
               appearance={"danger"}
@@ -193,7 +193,7 @@ export const Textfield = (props: ITextfield) => {
               appearance={"danger"}
               textAlign={"center"}
             >
-              {message && `${message}`}
+              {message}
             </Text>
           </Stack>
         </StyledMessageContainer>
