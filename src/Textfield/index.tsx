@@ -179,7 +179,7 @@ const Textfield = (props: ITextfield) => {
         )}
       </StyledInputContainer>
 
-      {status === "invalid" && !disabled && (
+      {status === "invalid" && !disabled && message && (
         <StyledMessageContainer>
           <Stack alignItems="center" gap="4px" margin="5px 0 0 16px">
             <Icon
@@ -193,7 +193,7 @@ const Textfield = (props: ITextfield) => {
               appearance={"danger"}
               textAlign={"center"}
             >
-              {message ? message : "No hay mensaje para mostrar"}
+              {message}
             </Text>
           </Stack>
         </StyledMessageContainer>
