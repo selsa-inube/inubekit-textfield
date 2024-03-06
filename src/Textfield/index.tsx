@@ -15,7 +15,7 @@ import {
   StyledMessageContainer,
 } from "./styles";
 
-export interface ITextfield {
+interface ITextfield {
   label?: string;
   name?: string;
   id: string;
@@ -36,7 +36,7 @@ export interface ITextfield {
   focused?: boolean;
 }
 
-export const Textfield = (props: ITextfield) => {
+const Textfield = (props: ITextfield) => {
   const {
     label,
     name,
@@ -193,7 +193,7 @@ export const Textfield = (props: ITextfield) => {
               appearance={"danger"}
               textAlign={"center"}
             >
-              {message}
+              {message ? message : "No hay mensaje para mostrar"}
             </Text>
           </Stack>
         </StyledMessageContainer>
@@ -201,3 +201,6 @@ export const Textfield = (props: ITextfield) => {
     </StyledContainer>
   );
 };
+
+export { Textfield };
+export type { ITextfield };

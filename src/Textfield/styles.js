@@ -2,19 +2,19 @@ import styled from "styled-components";
 
 import { inube } from "@inubekit/foundations";
 
-export const StyledContainer = styled.div`
+const StyledContainer = styled.div`
   cursor: ${({ $disabled }) => $disabled && "not-allowed"};
   width: ${({ $fullwidth }) => ($fullwidth ? "100%" : "280px")};
 `;
 
-export const StyledContainerLabel = styled.div`
+const StyledContainerLabel = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 5px;
   pointer-events: ${({ $disabled }) => $disabled && "none"};
 `;
 
-export const StyledInputContainer = styled.div`
+const StyledInputContainer = styled.div`
   display: grid;
   align-items: center;
   box-sizing: border-box;
@@ -70,7 +70,7 @@ export const StyledInputContainer = styled.div`
     }};
 `;
 
-export const StyledInput = styled.input`
+const StyledInput = styled.input`
   outline: none;
   border-radius: 8px;
   font-family: ${({ theme }) =>
@@ -129,9 +129,17 @@ export const StyledInput = styled.input`
   }
 `;
 
-export const StyledMessageContainer = styled.div`
+const StyledMessageContainer = styled.div`
   margin-top: 4px;
   pointer-events: none;
   color: ${({ theme }) =>
     theme?.input?.message?.color?.regular || inube.input.message.color.regular};
 `;
+
+export {
+  StyledContainer,
+  StyledContainerLabel,
+  StyledInputContainer,
+  StyledInput,
+  StyledMessageContainer,
+};

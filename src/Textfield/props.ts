@@ -1,4 +1,4 @@
-export const inputTypes = [
+const inputTypes = [
   "text",
   "email",
   "number",
@@ -6,15 +6,15 @@ export const inputTypes = [
   "search",
   "tel",
 ] as const;
-export type InputType = (typeof inputTypes)[number];
+type InputType = (typeof inputTypes)[number];
 
-export const sizes = ["wide", "compact"] as const;
-export type Size = (typeof sizes)[number];
+const sizes = ["wide", "compact"] as const;
+type Size = (typeof sizes)[number];
 
-export const status = ["valid", "invalid", "pending"] as const;
-export type Status = (typeof status)[number];
+const status = ["valid", "invalid", "pending"] as const;
+type Status = (typeof status)[number];
 
-export const parameters = {
+const parameters = {
   docs: {
     description: {
       component:
@@ -23,7 +23,7 @@ export const parameters = {
   },
 };
 
-export const props = {
+const props = {
   label: {
     description: "prompts the user what value to enter",
   },
@@ -97,3 +97,7 @@ export const props = {
     },
   },
 };
+
+export { parameters, props };
+
+export type { InputType, Size, Status };

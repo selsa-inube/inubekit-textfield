@@ -1,5 +1,5 @@
 import { props, parameters } from "../props";
-import { Textfield, ITextfieldProps } from "..";
+import { Textfield, ITextfield } from "..";
 import { TextfieldController } from "./TextfieldController";
 
 const story = {
@@ -9,9 +9,7 @@ const story = {
   argTypes: props,
 };
 
-export const Default = (args: ITextfieldProps) => (
-  <TextfieldController {...args} />
-);
+const Default = (args: ITextfield) => <TextfieldController {...args} />;
 Default.args = {
   label: "Username",
   name: "Username",
@@ -28,3 +26,5 @@ Default.args = {
 };
 
 export default story;
+
+export { Default };
