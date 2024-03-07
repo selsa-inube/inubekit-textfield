@@ -62,7 +62,7 @@ const Textfield = (props: ITextfield) => {
   const interceptFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFocused(true);
     try {
-      onFocus && onFocus?.(e);
+      onFocus && onFocus(e);
     } catch (error) {
       if (error instanceof Error) {
         throw new Error(error.message);
@@ -75,7 +75,7 @@ const Textfield = (props: ITextfield) => {
   const interceptBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFocused(false);
     try {
-      onFocus && onBlur?.(e);
+      onBlur && onBlur(e);
     } catch (error) {
       if (error instanceof Error) {
         throw new Error(error.message);

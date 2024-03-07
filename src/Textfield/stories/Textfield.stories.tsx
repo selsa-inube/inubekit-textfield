@@ -17,7 +17,6 @@ Default.args = {
   placeholder: "Write your full name",
   value: "",
   size: "wide",
-  readOnly: false,
   disabled: false,
   required: false,
   type: "text",
