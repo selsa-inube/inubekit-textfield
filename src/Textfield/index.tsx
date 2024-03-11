@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { MdCheckCircle, MdOutlineWarning } from "react-icons/md";
+import { MdOutlineWarning } from "react-icons/md";
 
 import { Text } from "@inubekit/text";
 import { Label } from "@inubekit/label";
-
 import { Icon } from "@inubekit/icon";
 import { Stack } from "@inubekit/stack";
 
@@ -16,7 +15,7 @@ import {
   StyledMessageContainer,
 } from "./styles";
 
-export interface ITextfieldProps {
+interface ITextfield {
   label?: string;
   name?: string;
   id: string;
@@ -34,39 +33,10 @@ export interface ITextfieldProps {
   fullwidth?: boolean;
   onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  readOnly?: boolean;
   focused?: boolean;
 }
 
-const Message = (props: Omit<ITextfieldProps, "id"> & { message?: string }) => {
-  const { disabled, status, message } = props;
-
-  return status !== "pending" ? (
-    <StyledMessageContainer disabled={disabled} $status={status}>
-      <Stack alignItems="center" gap="4px" margin="s050 s0 s0 s200">
-        <Icon
-          appearance={status === "invalid" ? "error" : "success"}
-          disabled={disabled}
-          icon={status === "invalid" ? <MdOutlineWarning /> : <MdCheckCircle />}
-          size="14px"
-        />
-        <Text
-          type="body"
-          size="small"
-          appearance={status === "invalid" ? "error" : "success"}
-          disabled={disabled}
-          textAlign={"center"}
-        >
-          {message && `${message}`}
-        </Text>
-      </Stack>
-    </StyledMessageContainer>
-  ) : (
-    <></>
-  );
-};
-
-export const Textfield = (props: ITextfieldProps) => {
+const Textfield = (props: ITextfield) => {
   const {
     label,
     name,
@@ -85,24 +55,45 @@ export const Textfield = (props: ITextfieldProps) => {
     fullwidth = false,
     onFocus,
     onBlur,
-    readOnly,
   } = props;
 
   const [focused, setFocused] = useState(false);
 
   const interceptFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!readOnly) {
-      setFocused(true);
-    }
-    if (typeof onFocus === "function") {
-      onFocus(e);
+    setFocused(true);
+    try {
+      onFocus && onFocus(e);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
     }
   };
 
   const interceptBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFocused(false);
-    if (typeof onBlur === "function") {
-      onBlur(e);
+    try {
+      onBlur && onBlur(e);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
+    }
+  };
+
+  const interceptChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    try {
+      onChange && onChange(e);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
     }
   };
 
@@ -131,7 +122,7 @@ export const Textfield = (props: ITextfieldProps) => {
           <Text
             type="body"
             size="small"
-            appearance="dark"
+            appearance="danger"
             margin="0px 0px 0px 4px"
             textAlign={"center"}
           >
@@ -146,7 +137,6 @@ export const Textfield = (props: ITextfieldProps) => {
         $status={status}
         $iconBefore={iconBefore}
         $iconAfter={iconAfter}
-        $readOnly={readOnly}
       >
         {iconBefore && (
           <Icon
@@ -173,10 +163,9 @@ export const Textfield = (props: ITextfieldProps) => {
           $status={status}
           $fullwidth={fullwidth}
           $focused={focused}
-          onChange={onChange}
+          onChange={interceptChange}
           onFocus={interceptFocus}
           onBlur={interceptBlur}
-          readOnly={readOnly}
         />
 
         {iconAfter && (
@@ -190,9 +179,28 @@ export const Textfield = (props: ITextfieldProps) => {
         )}
       </StyledInputContainer>
 
-      {status && (
-        <Message disabled={disabled} status={status} message={message} />
+      {status === "invalid" && !disabled && message && (
+        <StyledMessageContainer>
+          <Stack alignItems="center" gap="4px" margin="5px 0 0 16px">
+            <Icon
+              appearance={"danger"}
+              icon={<MdOutlineWarning />}
+              size="14px"
+            />
+            <Text
+              type="body"
+              size="small"
+              appearance={"danger"}
+              textAlign={"center"}
+            >
+              {message}
+            </Text>
+          </Stack>
+        </StyledMessageContainer>
       )}
     </StyledContainer>
   );
 };
+
+export { Textfield };
+export type { ITextfield };
