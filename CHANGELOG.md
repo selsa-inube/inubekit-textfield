@@ -1,3 +1,20 @@
+# v2.0.0 (Thu Mar 14 2024)
+
+#### 💥 Breaking Change
+
+- Refactor component to use new tokens, and component dependencies [#3](https://github.com/selsa-inube/inubekit-textfield/pull/3) ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+
+#### 🐛 Bug Fix
+
+- Publish `Textfield` package in NPM [#2](https://github.com/selsa-inube/inubekit-textfield/pull/2) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- Januar Asprilla  ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+
+---
+
 # v0.0.2 (Thu Feb 15 2024)
 
 #### 🐛 Bug Fix
