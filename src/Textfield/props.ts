@@ -11,7 +11,7 @@ type InputType = (typeof inputTypes)[number];
 const sizes = ["wide", "compact"] as const;
 type Size = (typeof sizes)[number];
 
-const status = ["valid", "invalid", "pending"] as const;
+const status = ["invalid", "pending"] as const;
 type Status = (typeof status)[number];
 
 const parameters = {
