@@ -23,13 +23,10 @@ const TextfieldController = (props: ITextfield) => {
 
   const onBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isValid = isAlphabetical(e.target.value);
-    setForm({ ...form, status: isValid ? "valid" : "invalid" });
+    setForm({ ...form, status: isValid ? "pending" : "invalid" });
   };
 
-  const message =
-    form.status === "valid"
-      ? "The field has been successfully validated"
-      : "(Please enter only letters in this field)";
+  const message = "(Please enter only letters in this field)";
 
   return (
     <Textfield
