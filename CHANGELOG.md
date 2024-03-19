@@ -1,3 +1,19 @@
+# v2.0.1 (Tue Mar 19 2024)
+
+#### 🐛 Bug Fix
+
+- Remove "valid" value from status prop [#5](https://github.com/selsa-inube/inubekit-textfield/pull/5) ([@cmarin001](https://github.com/cmarin001))
+
+#### 📝 Documentation
+
+- Publish new version 2.0.0 [#4](https://github.com/selsa-inube/inubekit-textfield/pull/4) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v2.0.0 (Thu Mar 14 2024)
 
 #### 💥 Breaking Change
