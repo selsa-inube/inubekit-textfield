@@ -6,7 +6,7 @@ import { Label } from "@inubekit/label";
 import { Icon } from "@inubekit/icon";
 import { Stack } from "@inubekit/stack";
 
-import { InputType, Size, Status } from "./props";
+import { ITextfieldInputType, ITextfieldSize, ITextfieldStatus } from "./props";
 import {
   StyledContainer,
   StyledContainerLabel,
@@ -21,15 +21,15 @@ interface ITextfield {
   id: string;
   placeholder?: string;
   disabled?: boolean;
-  type?: InputType;
+  type?: ITextfieldInputType;
   value?: string | number;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   iconBefore?: React.ReactNode;
   iconAfter?: React.ReactNode;
   required?: boolean;
-  status?: Status;
+  status?: ITextfieldStatus;
   message?: string;
-  size?: Size;
+  size?: ITextfieldSize;
   fullwidth?: boolean;
   onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;

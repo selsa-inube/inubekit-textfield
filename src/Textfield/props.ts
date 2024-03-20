@@ -6,13 +6,13 @@ const inputTypes = [
   "search",
   "tel",
 ] as const;
-type InputType = (typeof inputTypes)[number];
+type ITextfieldInputType = (typeof inputTypes)[number];
 
 const sizes = ["wide", "compact"] as const;
-type Size = (typeof sizes)[number];
+type ITextfieldSize = (typeof sizes)[number];
 
 const status = ["invalid", "pending"] as const;
-type Status = (typeof status)[number];
+type ITextfieldStatus = (typeof status)[number];
 
 const parameters = {
   docs: {
@@ -99,5 +99,4 @@ const props = {
 };
 
 export { parameters, props };
-
-export type { InputType, Size, Status };
+export type { ITextfieldInputType, ITextfieldSize, ITextfieldStatus };
