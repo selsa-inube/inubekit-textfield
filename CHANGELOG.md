@@ -1,3 +1,23 @@
+# v2.1.0 (Fri Mar 22 2024)
+
+#### 🚀 Enhancement
+
+- Adjust and export interfaces [#7](https://github.com/selsa-inube/inubekit-textfield/pull/7) ([@cmarin001](https://github.com/cmarin001))
+
+#### 📝 Documentation
+
+- Publish new version 2.0.1 [#6](https://github.com/selsa-inube/inubekit-textfield/pull/6) ([@cmarin001](https://github.com/cmarin001))
+
+#### 🔩 Dependency Updates
+
+- Update inubekit/textfield to storybook v8 [#8](https://github.com/selsa-inube/inubekit-textfield/pull/8) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v2.0.1 (Tue Mar 19 2024)
 
 #### 🐛 Bug Fix
