@@ -1,3 +1,15 @@
+# v2.3.0 (Mon Jun 17 2024)
+
+#### 🚀 Enhancement
+
+- Update Dependencies to Use the Latest Version of Foundations [#12](https://github.com/selsa-inube/inubekit-textfield/pull/12) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v2.2.0 (Tue Apr 30 2024)
 
 #### 🚀 Enhancement
