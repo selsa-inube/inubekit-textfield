@@ -1,3 +1,15 @@
+# v2.4.0 (Fri Jun 28 2024)
+
+#### 🚀 Enhancement
+
+- Update Project Dependencies [#13](https://github.com/selsa-inube/inubekit-textfield/pull/13) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v2.3.0 (Mon Jun 17 2024)
 
 #### 🚀 Enhancement
