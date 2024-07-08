@@ -76,7 +76,7 @@ const StyledInput = styled.input`
   font-family: ${({ theme }) =>
     theme?.typography?.body?.large?.font || inube.typography.body.large.font};
   font-size: ${inube.typography.body.large.size};
-  font-weight: ${inube.typography.body.large.weight};
+  font-weight: 400;
   line-height: ${inube.typography.body.large.lineHeight};
   letter-spacing: ${inube.typography.body.large.tracking};
   background-color: ${({ $disabled, theme }) =>
