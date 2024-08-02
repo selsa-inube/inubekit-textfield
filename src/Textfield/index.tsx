@@ -144,7 +144,6 @@ const Textfield = (props: ITextfield) => {
             disabled={disabled}
             icon={iconBefore}
             size={size === "compact" ? "18px" : "24px"}
-            spacing="none"
           />
         )}
 
@@ -174,7 +173,6 @@ const Textfield = (props: ITextfield) => {
             disabled={disabled}
             icon={iconAfter}
             size={size === "compact" ? "18px" : "24px"}
-            spacing="none"
           />
         )}
       </StyledInputContainer>
