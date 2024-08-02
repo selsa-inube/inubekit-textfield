@@ -1,3 +1,15 @@
+# v2.7.1 (Fri Aug 02 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Create update-foundations.yml ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v2.7.0 (Wed Jul 10 2024)
 
 #### 🚀 Enhancement
