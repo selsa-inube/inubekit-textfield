@@ -132,8 +132,6 @@ const StyledInput = styled.input`
 const StyledMessageContainer = styled.div`
   margin-top: 4px;
   pointer-events: none;
-  color: ${({ theme }) =>
-    theme?.input?.message?.color?.regular || inube.input.message.color.regular};
 `;
 
 export {
