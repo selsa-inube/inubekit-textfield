@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { MdOutlineWarning } from "react-icons/md";
-
-import { Text } from "@inubekit/text";
+import { ITextAppearance, Text } from "@inubekit/text";
 import { Label } from "@inubekit/label";
 import { Icon } from "@inubekit/icon";
 import { Stack } from "@inubekit/stack";
@@ -14,6 +13,8 @@ import {
   StyledInput,
   StyledMessageContainer,
 } from "./styles";
+import { inube } from "@inubekit/foundations";
+import { ThemeContext } from "styled-components";
 
 interface ITextfield {
   label?: string;
@@ -64,11 +65,7 @@ const Textfield = (props: ITextfield) => {
     try {
       onFocus && onFocus(e);
     } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      } else {
-        throw new Error("An unknown error occurred");
-      }
+      console.error(`Error executing focus callback. ${error}`);
     }
   };
 
@@ -77,11 +74,7 @@ const Textfield = (props: ITextfield) => {
     try {
       onBlur && onBlur(e);
     } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      } else {
-        throw new Error("An unknown error occurred");
-      }
+      console.error(`Error executing blur callback. ${error}`);
     }
   };
 
@@ -89,14 +82,17 @@ const Textfield = (props: ITextfield) => {
     try {
       onChange && onChange(e);
     } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      } else {
-        throw new Error("An unknown error occurred");
-      }
+      console.error(`Error when changing value using callback. ${error}`);
     }
   };
 
+  const theme: typeof inube = useContext(ThemeContext);
+  const requiredAppearance =
+    (theme?.input?.required?.appearance as ITextAppearance) ||
+    inube.input.required.appearance;
+  const messageAppearance =
+    (theme?.input?.message?.appearance as ITextAppearance) ||
+    inube.input.message.appearance;
   return (
     <StyledContainer $fullwidth={fullwidth} $disabled={disabled} $size={size}>
       <StyledContainerLabel
@@ -122,7 +118,7 @@ const Textfield = (props: ITextfield) => {
           <Text
             type="body"
             size="small"
-            appearance="danger"
+            appearance={requiredAppearance}
             margin="0px 0px 0px 4px"
             textAlign={"center"}
           >
@@ -181,14 +177,14 @@ const Textfield = (props: ITextfield) => {
         <StyledMessageContainer>
           <Stack alignItems="center" gap="4px" margin="5px 0 0 16px">
             <Icon
-              appearance={"danger"}
+              appearance={messageAppearance}
               icon={<MdOutlineWarning />}
               size="14px"
             />
             <Text
               type="body"
               size="small"
-              appearance={"danger"}
+              appearance={messageAppearance}
               textAlign={"center"}
             >
               {message}
