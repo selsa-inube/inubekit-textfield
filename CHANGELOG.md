@@ -1,3 +1,19 @@
+# v2.40.0 (Tue Oct 01 2024)
+
+#### 🚀 Enhancement
+
+- Auto-merge PR [#56](https://github.com/selsa-inube/inubekit-textfield/pull/56) ([@cmarin001](https://github.com/cmarin001))
+
+#### ⚠️ Pushed to `main`
+
+- fix: update tokens according to new directive ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v2.39.0 (Fri Sep 27 2024)
 
 #### 🚀 Enhancement
